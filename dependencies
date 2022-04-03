@@ -1,0 +1,34 @@
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
+
+<dependencyManagement>
+<dependencies>
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-dependencies</artifactId>
+<version>${spring-cloud.version}</version>
+<type>pom</type>
+<scope>import</scope>
+</dependency>
+</dependencies>
+</dependencyManagement>
+
+
+import java.util.List;
+
+
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+
+
+@FeignClient(name = "comment-service", url = "http://localhost:8082/comments")
+public interface PostFeignProxy {
+
+@GetMapping("search/post/{pid}")
+public List<CommentsDto> findByPid(@PathVariable("pid") Integer pid);
+}
