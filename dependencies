@@ -32,3 +32,17 @@ public interface PostFeignProxy {
 @GetMapping("search/post/{pid}")
 public List<CommentsDto> findByPid(@PathVariable("pid") Integer pid);
 }
+
+
+
+[28-Mar-22 4:57 PM] Praveen Kumar  G S
+@EnableFeignClients("com.example.postservice")
+
+[28-Mar-22 4:58 PM] Praveen Kumar  G S
+@Autowired
+PostFeignProxy proxy;
+
+[28-Mar-22 4:59 PM] Praveen Kumar  G S
+return proxy.findByPid(pid);
+
+
