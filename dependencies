@@ -15,6 +15,7 @@
 </dependencies>
 </dependencyManagement>
 
+<spring-cloud.version>2021.0.1</spring-cloud.version>
 
 import java.util.List;
 
